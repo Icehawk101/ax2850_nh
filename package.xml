@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<package>
+  <name>ax2850_nh</name>
+  <version>0.0.1</version>
+  <description>This package builds off of the AX2550 package. It was adapted for use with 2 ax2850 drivers set up to run 4 omnidirectional mechanum wheels. </description>
+
+  <maintainer email="nicholas.charabaruk@uoit.ca">Nick Charabaruk</maintainer>
+  
+  <license>MIT</license>
+
+  <url type="repository">https://github.com/Icehawk101/ax2850_nh</url>
+  <url type="bugtracker">https://github.com/Icehawk101/ax2850_nh/issues</url>
+  
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>serial</build_depend>
+  <build_depend>serial_utils</build_depend>
+  <build_depend>tf</build_depend>
+  <build_depend>ax2550</build_depend>
+  
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>serial</run_depend>
+  <run_depend>serial_utils</run_depend>
+  <run_depend>tf</run_depend>
+  <run_depend>ax2550</run_depend>
+
+
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- You can specify that this package is a metapackage here: -->
+    <!-- <metapackage/> -->
+
+    <!-- Other tools can request additional information be placed here -->
+
+  </export>
+</package>
