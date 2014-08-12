@@ -9,6 +9,7 @@ find_package(catkin REQUIRED COMPONENTS
   serial_utils
   tf
   ax2550
+  roslaunch
 )
 
 find_package(Boost REQUIRED COMPONENTS system thread)
@@ -53,4 +54,6 @@ RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 
 install(DIRECTORY launch
 DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
+
+roslaunch_add_file_check(launch/ax2850_nh.launch)
 
