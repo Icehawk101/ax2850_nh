@@ -1,10 +1,10 @@
 <launch>
-	<group ns="omnimaxbot>
-			<node ns="front" pkg="ax2850_nh" type="ax2850_node" name="ax2850_front" respawn="true"/>
+	<group ns="omnimaxbot">
+		<node pkg="ax2850_nh" type="ax2850_node" ns="front" name="ax2850_front" respawn="true"/>
 			  <param name="front/serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IKWU-if00-port0"/>
 			  <param name="front/odom_frame_id" type="string" value="front_odom"/>
 
-			<node ns="rear" pkg="ax2850_nh" type="ax2850_node" name="ax2850_rear" respawn="true"/>
+			<node pkg="ax2850_nh" type="ax2850_node" ns="rear" name="ax2850_rear" respawn="true"/>
 			  <param name="rear/serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IMQF-if00-port0"/>
 			  <param name="rear/odom_frame_id" type="string" value="rear_odom"/>
 
