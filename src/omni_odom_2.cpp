@@ -127,8 +127,8 @@ int main(int argc, char** argv)
   ros::NodeHandle n;
   odom_pub = n.advertise<nav_msgs::Odometry>("omni_odom", 60);
 
-  fr_enc = n.subscribe("/front/encoders", 1, feCallBack);
-  rr_enc = n.subscribe("/rear/encoders", 1, reCallBack);
+  fr_enc = n.subscribe("/omnimaxbot/front/encoders", 1, feCallBack);
+  rr_enc = n.subscribe("/omnimaxbot/rear/encoders", 1, reCallBack);
 
   ros::spin();
   return 0;

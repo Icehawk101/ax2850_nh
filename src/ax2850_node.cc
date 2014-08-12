@@ -177,7 +177,7 @@ int main(int argc, char **argv)
   encoder_pub = n.advertise<ax2550::Encoders>("encoders", 5);
     
   // cmd_vel Subscriber
-  ros::Subscriber sub = n.subscribe("/front/cmd_vel", 1, cmd_velCallback);
+  ros::Subscriber sub = n.subscribe("cmd_vel", 1, cmd_velCallback);
    
   // Spinner
   ros::AsyncSpinner spinner(1);

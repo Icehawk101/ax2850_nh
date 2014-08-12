@@ -145,11 +145,11 @@ int main(int argc, char **argv)
   ros::NodeHandle n;
 
   // cmd_vel publishers
-  front_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/front/cmd_vel", 5);
-  rear_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/rear/cmd_vel", 5);
+  front_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/omnimaxbot/front/cmd_vel", 5);
+  rear_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/omnimaxbot/rear/cmd_vel", 5);
 
   // cmd_vel Subscriber
-  ros::Subscriber sub = n.subscribe("cmd_vel", 5, cmd_velCallback);
+  ros::Subscriber sub = n.subscribe("/omnimaxbot/cmd_vel", 5, cmd_velCallback);
 
   ros::spin();
   
