@@ -1,16 +1,12 @@
 <launch>
 	<group ns="omnimaxbot>
-		<group ns="front">
-			<node pkg="ax2850_nh" type="ax2850_node" name="ax2850_front" respawn="true"/>
-			  <param name="serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IKWU-if00-port0"/>
-			  <param name="odom_frame_id" type="string" value="front_odom"/>
-		</group>
+			<node ns="front" pkg="ax2850_nh" type="ax2850_node" name="ax2850_front" respawn="true"/>
+			  <param name="left/serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IKWU-if00-port0"/>
+			  <param name="left/odom_frame_id" type="string" value="front_odom"/>
 
-		<group ns="rear">
-			<node pkg="ax2850_nh" type="ax2850_node" name="ax2850_rear" respawn="true"/>
-			  <param name="serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IMQF-if00-port0"/>
-			  <param name="odom_frame_id" type="string" value="rear_odom"/>
-		</group>
+			<node ns="rear" pkg="ax2850_nh" type="ax2850_node" name="ax2850_rear" respawn="true"/>
+			  <param name="right/serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IMQF-if00-port0"/>
+			  <param name="right/odom_frame_id" type="string" value="rear_odom"/>
 
 		<node pkg="ax2850_nh" type="omni_cmd_vel_2" name="omni_cmd_vel" respawn="true"/>
 		<node pkg="ax2850_nh" type="omni_odom_2" name="omni_odom" respawn="true" output="screen"/>
