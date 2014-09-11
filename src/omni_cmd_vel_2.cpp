@@ -149,11 +149,7 @@ int main(int argc, char **argv)
   rear_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/omnimaxbot/rear/cmd_vel", 5);
 
   // cmd_vel Subscriber
-<<<<<<< HEAD
   ros::Subscriber sub = n.subscribe("/cmd_vel", 5, cmd_velCallback);
-=======
-  ros::Subscriber sub = n.subscribe("/omnimaxbot/cmd_vel", 5, cmd_velCallback);
->>>>>>> 56c2fb66c12eccaec00bcc6ea0f3ec674fcee0c9
 
   ros::spin();
   
