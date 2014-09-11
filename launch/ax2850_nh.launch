@@ -1,5 +1,6 @@
 <launch>
 	<group ns="omnimaxbot">
+<<<<<<< HEAD
 		<node pkg="ax2850_nh" type="ax2850_node" ns="front" name="ax2850_front" respawn="true">
 		  <param name="front/serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IKWU-if00-port0"/>
 		  <param name="front/odom_frame_id" type="string" value="front_odom"/>
@@ -11,6 +12,17 @@
 		  <param name="rear/odom_frame_id" type="string" value="rear_odom"/>
 		  <remap from="cmd_vel" to="/omnimaxbot/rear/cmd_vel"/>
     </node>
+=======
+		<node pkg="ax2850_nh" type="ax2850_node" ns="front" name="ax2850_front" respawn="true"/>
+		  <param name="front/serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IKWU-if00-port0"/>
+		  <param name="front/odom_frame_id" type="string" value="front_odom"/>
+		  <remap from="cmd_vel" to="/omnimaxbot/front/cmd_vel"/>
+
+		<node pkg="ax2850_nh" type="ax2850_node" ns="rear" name="ax2850_rear" respawn="true"/>
+		  <param name="rear/serial_port" type="string" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A501IMQF-if00-port0"/>
+		  <param name="rear/odom_frame_id" type="string" value="rear_odom"/>
+		  <remap from="cmd_vel" to="/omnimaxbot/rear/cmd_vel"/>
+>>>>>>> 56c2fb66c12eccaec00bcc6ea0f3ec674fcee0c9
 
 		<node pkg="ax2850_nh" type="omni_cmd_vel_2" name="omni_cmd_vel" respawn="true"/>
 		
