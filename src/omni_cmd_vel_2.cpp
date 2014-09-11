@@ -120,14 +120,14 @@ if(rear_A_rel > REL_MAX)
   // publish motor speeds
   geometry_msgs::Twist front_cmd_vel;
   front_cmd_vel.linear.x = front_A_rel * -1;
-  front_cmd_vel.linear.y = front_B_rel * -1;
+  front_cmd_vel.linear.y = front_B_rel;
   front_cmd_vel.linear.z = 0.0;
   front_cmd_vel.angular.x = 0.0;
   front_cmd_vel.angular.y = 0.0;
   front_cmd_vel.angular.z = 0.0;
 
   geometry_msgs::Twist rear_cmd_vel;
-  rear_cmd_vel.linear.x = rear_A_rel;
+  rear_cmd_vel.linear.x = rear_A_rel * -1;
   rear_cmd_vel.linear.y = rear_B_rel;
   rear_cmd_vel.linear.z = 0.0;
   rear_cmd_vel.angular.x = 0.0;
@@ -145,11 +145,11 @@ int main(int argc, char **argv)
   ros::NodeHandle n;
 
   // cmd_vel publishers
-  front_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/front/cmd_vel", 5);
-  rear_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/rear/cmd_vel", 5);
+  front_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/omnimaxbot/front/cmd_vel", 5);
+  rear_cmd_vel_pub = n.advertise<geometry_msgs::Twist>("/omnimaxbot/rear/cmd_vel", 5);
 
   // cmd_vel Subscriber
-  ros::Subscriber sub = n.subscribe("cmd_vel", 5, cmd_velCallback);
+  ros::Subscriber sub = n.subscribe("/cmd_vel", 5, cmd_velCallback);
 
   ros::spin();
   

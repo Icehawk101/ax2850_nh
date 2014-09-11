@@ -29,13 +29,13 @@ void computeOdom();
 void feCallBack(const ax2550::Encoders::ConstPtr& msg)
 {
   wheel1_new = msg->right_wheel;
-  wheel4_new = msg->left_wheel;
+  wheel4_new = msg->left_wheel * -1;
   dt_front = msg->time_delta;
 }
 
 void reCallBack(const ax2550::Encoders::ConstPtr& msg)
 {
-  wheel2_new = msg->right_wheel;
+  wheel2_new = msg->right_wheel * -1;
   wheel3_new = msg->left_wheel;
   dt_rear = msg->time_delta;
   computeOdom();
@@ -127,8 +127,8 @@ int main(int argc, char** argv)
   ros::NodeHandle n;
   odom_pub = n.advertise<nav_msgs::Odometry>("omni_odom", 60);
 
-  fr_enc = n.subscribe("/front/encoders", 1, feCallBack);
-  rr_enc = n.subscribe("/rear/encoders", 1, reCallBack);
+  fr_enc = n.subscribe("/omnimaxbot/front/encoders", 1, feCallBack);
+  rr_enc = n.subscribe("/omnimaxbot/rear/encoders", 1, reCallBack);
 
   ros::spin();
   return 0;

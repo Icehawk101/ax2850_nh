@@ -26,9 +26,6 @@ double target_speed_left = 0.0;
 double rot_cov = 0.0;
 double pos_cov = 0.0;
 
-static double A_MAX = 50.0;
-static double B_MAX = 50.0;
-
 const int timeout_sec = 2.0;
 ros::Time time_last;
 
@@ -137,7 +134,7 @@ void queryEncoders()
   ax2550::Encoders encoder_msg;
     
   encoder_msg.time_delta = delta_time;
-  encoder_msg.right_wheel = -encoder1;
+  encoder_msg.right_wheel = encoder1 * -1;
   encoder_msg.left_wheel = encoder2;
     
   encoder_pub.publish(encoder_msg);
@@ -170,14 +167,14 @@ int main(int argc, char **argv)
   n.param("position_covariance",pos_cov, 1.0);
     
   // Setup Encoder polling
-  n.param("encoder_poll_rate", encoder_poll_rate, 1.0); //default 25.0
+  n.param("encoder_poll_rate", encoder_poll_rate, 25.0); //default 25.0
   ros::Rate encoder_rate(encoder_poll_rate);
     
   // Encoder Publisher
   encoder_pub = n.advertise<ax2550::Encoders>("encoders", 5);
     
   // cmd_vel Subscriber
-  ros::Subscriber sub = n.subscribe("/front/cmd_vel", 1, cmd_velCallback);
+  ros::Subscriber sub = n.subscribe("cmd_vel", 1, cmd_velCallback);
    
   // Spinner
   ros::AsyncSpinner spinner(1);
